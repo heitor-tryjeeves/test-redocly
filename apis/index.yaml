@@ -1,0 +1,1785 @@
+components:
+  schemas:
+    ErrorDto:
+      properties:
+        message:
+          type: string
+        statusCode:
+          type: number
+      type: object
+      required:
+        - message
+        - statusCode
+    BadRequestErrorDto:
+      properties:
+        errors:
+          items:
+            type: object
+          type: array
+        message:
+          type: string
+        statusCode:
+          type: number
+      type: object
+      required:
+        - message
+        - statusCode
+    Page:
+      properties:
+        count:
+          type: number
+          example: 100
+      type: object
+      required:
+        - count
+    CardActiveDateRangeRestrictions:
+      properties:
+        startDate:
+          pattern: \d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d.\d+Z?
+          type: string
+          description: The date and time after which the card can be used.
+          example: '2024-12-25 00:00:00'
+          nullable: true
+        endDate:
+          pattern: \d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d.\d+Z?
+          type: string
+          description: The date and time after which the card can no longer be used.
+          example: '2024-12-31 23:59:59'
+          nullable: true
+      type: object
+    CardRestrictions:
+      properties:
+        spendLimit:
+          minLength: 1
+          type: number
+          exclusiveMinimum: true
+          description: The maximum total amount that can be spent with the card.
+          example: 1000
+          minimum: 0
+        activeDateRangeUTC:
+          $ref: '#/components/schemas/CardActiveDateRangeRestrictions'
+        maxTransactionCount:
+          maximum: 10
+          type: number
+          minimum: 1
+          description: The maximum number of transactions that can be made with the card.
+          example: 10
+      type: object
+      required:
+        - spendLimit
+    CardRestrictionsUpdateDto:
+      properties:
+        spendLimit:
+          type: string
+          exclusiveMinimum: true
+          minLength: 1
+          description: The maximum total amount that can be spent with the card.
+          example: 1000
+          minimum: 0
+        activeDateRangeUTC:
+          $ref: '#/components/schemas/CardActiveDateRangeRestrictions'
+        maxTransactionCount:
+          maximum: 10
+          type: number
+          minimum: 1
+          description: The maximum number of transactions that can be made with the card.
+          example: 10
+      type: object
+    CardDetails:
+      properties:
+        cardNumber:
+          type: string
+          description: Card PAN.
+          example: '1234567890123456'
+        cardHolder:
+          type: string
+          description: The card holder name on the card.
+          example: John Doe
+        expiryDate:
+          type: string
+          description: The expiry date of the card.
+          example: 12/27
+        cvvCode:
+          type: string
+          description: The CVV code on the back of the card.
+          example: '123'
+      type: object
+      required:
+        - cardNumber
+        - cardHolder
+        - expiryDate
+        - cvvCode
+    CardCreateDto:
+      properties:
+        name:
+          pattern: ^[a-zA-Z0-9\s]+$
+          type: string
+          maxLength: 60
+          minLength: 1
+          description: The name of the card.
+          example: Travel Card
+        metadata:
+          type: object
+          description: 'Card metadata. Can be used to store additional information about the card, e.g. type: travel. Keys must be strings up to 50 chars. Values must be strings up to 255 chars'
+          example:
+            itineraryId: ITIN-993235
+            bookingReference: BREF-334234
+            key1: value1
+            key2: value2
+        restrictions:
+          $ref: '#/components/schemas/CardRestrictions'
+          minLength: 1
+          type: string
+      type: object
+      required:
+        - name
+        - restrictions
+    CardUpdateDto:
+      properties:
+        name:
+          pattern: ^[a-zA-Z0-9\s]+$
+          type: string
+          maxLength: 60
+          example: Travel Card
+        metadata:
+          type: object
+          example:
+            key1: value1
+            key2: value2
+        restrictions:
+          $ref: '#/components/schemas/CardRestrictionsUpdateDto'
+      type: object
+    CardDto:
+      properties:
+        id:
+          type: string
+          example: 123e4567-e89b-12d3-a456-426614174000
+        createdAt:
+          type: string
+          example: '2024-12-25 10:35:00'
+        updatedAt:
+          type: string
+          example: '2024-12-25 10:35:00'
+        name:
+          pattern: ^[a-zA-Z0-9\s]+$
+          type: string
+          maxLength: 60
+          minLength: 1
+          description: The name of the card.
+          example: Travel Card
+        metadata:
+          type: object
+          description: 'Card metadata. Can be used to store additional information about the card, e.g. type: travel. Keys must be strings up to 50 chars. Values must be strings up to 255 chars'
+          example:
+            itineraryId: ITIN-993235
+            bookingReference: BREF-334234
+            key1: value1
+            key2: value2
+        restrictions:
+          $ref: '#/components/schemas/CardRestrictions'
+          minLength: 1
+          type: string
+      type: object
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - name
+        - restrictions
+    CardDetailsDto:
+      properties:
+        details:
+          $ref: '#/components/schemas/CardDetails'
+        name:
+          pattern: ^[a-zA-Z0-9\s]+$
+          type: string
+          maxLength: 60
+          minLength: 1
+          description: The name of the card.
+          example: Travel Card
+        metadata:
+          type: object
+          description: 'Card metadata. Can be used to store additional information about the card, e.g. type: travel. Keys must be strings up to 50 chars. Values must be strings up to 255 chars'
+          example:
+            itineraryId: ITIN-993235
+            bookingReference: BREF-334234
+            key1: value1
+            key2: value2
+        restrictions:
+          $ref: '#/components/schemas/CardRestrictions'
+          minLength: 1
+          type: string
+        id:
+          type: string
+          example: 123e4567-e89b-12d3-a456-426614174000
+        createdAt:
+          type: string
+          example: '2024-12-25 10:35:00'
+        updatedAt:
+          type: string
+          example: '2024-12-25 10:35:00'
+      type: object
+      required:
+        - details
+        - name
+        - restrictions
+        - id
+        - createdAt
+        - updatedAt
+    CardsListRequest:
+      properties:
+        page:
+          minimum: 1
+          type: number
+          description: The page number to retrieve.
+          default: 1
+          example: 1
+        pageSize:
+          maximum: 500
+          type: number
+          minimum: 1
+          description: The number of items per page.
+          default: 20
+          example: 20
+      type: object
+    CardsPageDto:
+      properties:
+        rows:
+          items:
+            $ref: '#/components/schemas/CardDto'
+          type: array
+        count:
+          type: number
+          example: 100
+      type: object
+      required:
+        - rows
+        - count
+    TravelCardBookingDetails:
+      properties:
+        itineraryId:
+          maxLength: 60
+          type: string
+          description: The travel itinerary where the card is used.
+          example: ITIN-993235
+        bookingReference:
+          maxLength: 60
+          type: string
+          description: The booking reference where the card is used.
+          example: BREF-334234
+        transactionId:
+          maxLength: 60
+          type: string
+          description: The transaction id.
+          example: TRX-673829
+        otherCustomField:
+          type: string
+          description: Other custom key-value field
+          example: custom-value
+      type: object
+    TravelCardDto:
+      properties:
+        metadata:
+          $ref: '#/components/schemas/TravelCardBookingDetails'
+          type: object
+          description: 'Card metadata. Can be used to store additional information about the card, e.g. type: travel. Keys must be strings up to 50 chars. Values must be strings up to 255 chars'
+          example:
+            itineraryId: ITIN-993235
+            bookingReference: BREF-334234
+            key1: value1
+            key2: value2
+        name:
+          pattern: ^[a-zA-Z0-9\s]+$
+          type: string
+          maxLength: 60
+          minLength: 1
+          description: The name of the card.
+          example: Travel Card
+        restrictions:
+          $ref: '#/components/schemas/CardRestrictions'
+          minLength: 1
+          type: string
+        id:
+          type: string
+          example: 123e4567-e89b-12d3-a456-426614174000
+        createdAt:
+          type: string
+          example: '2024-12-25 10:35:00'
+        updatedAt:
+          type: string
+          example: '2024-12-25 10:35:00'
+      type: object
+      required:
+        - name
+        - restrictions
+        - id
+        - createdAt
+        - updatedAt
+    GetTransactionsRequest:
+      properties:
+        pageCursor:
+          type: string
+          description: The cursor of the next page of transactions (returned in the "nextCursor" property in the response).
+          nullable: true
+          default: null
+        pageSize:
+          maximum: 100
+          type: number
+          minimum: 1
+          description: The page size.
+          default: 100
+          example: 100
+        startDate:
+          oneOf:
+            - format: date
+              type: string
+            - format: date-time
+              type: string
+          description: The start date of the transaction.
+          example: '2025-01-01'
+          default: D-1 (yesterday)
+          format: yyyy-MM-dd
+        endDate:
+          oneOf:
+            - format: date
+              type: string
+            - format: date-time
+              type: string
+          description: The end date of the transaction.
+          example: '2025-01-01'
+          default: D-1 (yesterday)
+          format: yyyy-MM-dd
+      type: object
+    TransactionDto:
+      properties:
+        transactionId:
+          minLength: 1
+          type: string
+          description: The UUID of the transaction.
+          example: d5d5c940-3c58-4ecc-b772-fe20e764ed70
+        transactionDate:
+          minLength: 1
+          type: string
+          pattern: \d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d.\d+Z?
+          description: The date and time (UTC) of the transaction.
+          example: '2024-12-25 10:35:00'
+        settlementDate:
+          minLength: 1
+          type: string
+          pattern: \d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d.\d+Z?
+          description: The date and time (UTC) of the transaction settlement.
+          example: '2024-12-26 00:00:00'
+        cardLastFour:
+          minLength: 1
+          type: string
+          description: The last 4 digits of the card number.
+          example: '1234'
+        merchantName:
+          minLength: 1
+          type: string
+          description: The name of the merchant.
+          example: Starbucks
+        transactionAmount:
+          minLength: 1
+          type: number
+          description: The amount of the transaction.
+          example: 1000
+        transactionCurrency:
+          minLength: 1
+          type: string
+          description: The currency of the transaction.
+          example: USD
+        transactionType:
+          minLength: 1
+          type: string
+          enum:
+            - debit
+            - credit
+          description: The type of the transaction.
+          example: debit
+        merchantCategoryCode:
+          minLength: 1
+          type: string
+          description: The Merchant Category Code of the transaction.
+          example: '5411'
+        cardholderName:
+          minLength: 1
+          type: string
+          description: The cardholder name of the transaction.
+          example: John Doe
+        cardName:
+          minLength: 1
+          type: string
+          description: The name of the card.
+          example: Travel Card
+        cardId:
+          minLength: 1
+          type: string
+          description: The UUID of the card.
+          example: c8ddf33f-6244-4218-af7e-7a6fe0b13528
+        authorizationCode:
+          type: string
+          description: The authorization code of the transaction.
+          example: '123456'
+        metadata:
+          minLength: 1
+          type: object
+          description: The metadata of the card that the transaction was made with.
+          example:
+            itineraryId: ITIN-993235
+            bookingReference: BREF-334234
+            key1: value1
+            key2: value2
+        restrictions:
+          $ref: '#/components/schemas/CardRestrictions'
+          minLength: 1
+          type: object
+          description: The restrictions of the card that the transaction was made with.
+      type: object
+      required:
+        - transactionId
+        - transactionDate
+        - settlementDate
+        - cardLastFour
+        - merchantName
+        - transactionAmount
+        - transactionCurrency
+        - transactionType
+        - merchantCategoryCode
+        - cardholderName
+        - cardName
+        - cardId
+        - metadata
+        - restrictions
+    TransactionResponseLinks:
+      properties:
+        next:
+          type: string
+          description: Example of the next page call with the cursor.
+          example: /v1/travel/transactions?cursor=6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c65
+      type: object
+    TransactionResponsePagination:
+      properties:
+        hasNext:
+          minLength: 1
+          type: boolean
+          description: Whether there is a next page of transactions.
+          example: true
+        nextCursor:
+          minLength: 1
+          type: string
+          description: The cursor of the next page of transactions.
+          example: 6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c65
+        totalCount:
+          minLength: 1
+          type: number
+          description: The total number of transactions.
+          example: 110
+        pageSize:
+          minLength: 1
+          type: number
+          description: The number of transactions per page.
+          example: 100
+      type: object
+      required:
+        - hasNext
+        - nextCursor
+        - totalCount
+        - pageSize
+    TransactionResponse:
+      properties:
+        links:
+          minLength: 1
+          type: object
+          description: The links of next page of transactions.
+          example:
+            next: /v1/travel/transactions?cursor=6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c65
+        pagination:
+          minLength: 1
+          type: object
+          description: The pagination cursor of the next page of transactions.
+          example:
+            hasNext: true
+            nextCursor: 6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c652d6e6578742d637572736f722d6578616d706c65
+        data:
+          items:
+            $ref: '#/components/schemas/TransactionDto'
+          type: array
+      type: object
+      required:
+        - links
+        - pagination
+        - data
+    PayerPhoneDto:
+      properties:
+        internationalDialCode:
+          maxLength: 3
+          type: string
+          minLength: 1
+          description: The payer phone international dial code
+          example: '055'
+        areaCode:
+          maxLength: 2
+          type: string
+          minLength: 1
+          description: The payer phone area code
+          example: '11'
+        number:
+          maxLength: 9
+          type: string
+          minLength: 1
+          description: The payer phone number
+          example: '987654321'
+      type: object
+      required:
+        - internationalDialCode
+        - areaCode
+        - number
+    PayerAddressDto:
+      properties:
+        street:
+          maxLength: 500
+          type: string
+          minLength: 1
+          description: The payer address street name.
+          example: 101 High St.
+        number:
+          maxLength: 6
+          type: string
+          minLength: 1
+          description: The payer address number.
+          example: '202'
+        complement:
+          maxLength: 500
+          type: string
+          description: The payer address complement.
+          example: Building A
+        neighborhood:
+          maxLength: 100
+          type: string
+          minLength: 1
+          description: The payer address neighborhood.
+          example: Tech Park
+        postalCode:
+          minLength: 8
+          maxLength: 8
+          type: string
+          description: The payer address postal code (CEP).
+          example: '01001000'
+        city:
+          maxLength: 100
+          type: string
+          minLength: 1
+          description: The payer address city.
+          example: São Paulo
+        state:
+          enum:
+            - AC
+            - AL
+            - AM
+            - AP
+            - BA
+            - CE
+            - DF
+            - ES
+            - GO
+            - MA
+            - MG
+            - MS
+            - MT
+            - PA
+            - PB
+            - PE
+            - PI
+            - PR
+            - RJ
+            - RN
+            - RO
+            - RR
+            - RS
+            - SC
+            - SE
+            - SP
+            - TO
+          type: string
+          minLength: 1
+          description: The payer address state.
+          example: SP
+      type: object
+      required:
+        - street
+        - number
+        - neighborhood
+        - postalCode
+        - city
+        - state
+    PayerDataDto:
+      properties:
+        name:
+          maxLength: 100
+          type: string
+          minLength: 1
+          description: The payer name.
+          example: Global Tech
+        personType:
+          enum:
+            - natural
+            - legal
+          type: string
+          minLength: 1
+          description: The type of person.
+          example: legal
+        documentNumber:
+          type: string
+          minLength: 11
+          maxLength: 14
+          description: The payer document number (CPF for natural person - 11 digits, CNPJ for legal person - 14 digits).
+          example: '12345678000195'
+        email:
+          maxLength: 320
+          type: string
+          format: email
+          minLength: 1
+          description: The payer email address
+          example: finance@globaltech.com
+        phone:
+          $ref: '#/components/schemas/PayerPhoneDto'
+          minLength: 1
+          type: string
+          description: The payer phone information.
+        address:
+          $ref: '#/components/schemas/PayerAddressDto'
+          minLength: 1
+          type: string
+          description: The payer address information.
+      type: object
+      required:
+        - name
+        - personType
+        - documentNumber
+        - email
+        - phone
+        - address
+    PaymentDetailsDto:
+      properties:
+        paidAmount:
+          exclusiveMinimum: true
+          type: string
+          minLength: 1
+          description: The paid amount.
+          example: 5000
+          minimum: 0
+        method:
+          enum:
+            - cash
+            - account_debit
+            - credit_card
+            - check
+          type: string
+          minLength: 1
+          description: The payment method.
+          example: account_debit
+        origin:
+          enum:
+            - phisical_cashier
+            - taa
+            - internet
+            - corban
+            - call_center
+            - eletronic_file
+            - dda
+            - digital_correspondent
+            - qr_code
+          type: string
+          minLength: 1
+          description: The payment origin.
+          example: qr_code
+        creditDate:
+          oneOf:
+            - format: date
+              type: string
+            - format: date-time
+              type: string
+          minLength: 1
+          type: string
+          description: The payment credit date (ISO 8601 format YYYY-MM-DD).
+          example: '2025-01-15'
+      type: object
+      required:
+        - paidAmount
+        - method
+        - origin
+        - creditDate
+    BoletoDto:
+      properties:
+        id:
+          minLength: 36
+          maxLength: 36
+          type: string
+          description: Unique boleto identification key in uuid v4 format.
+          example: 4c2fa514-a44d-40f2-8d57-c0caf1b9165a
+        boletoStatus:
+          enum:
+            - accepted
+            - rejected
+            - payment_notice
+            - notary_office_payment_notice
+            - registered
+            - payment_blocked
+            - paid
+            - written_off
+            - cancellation_in_progress
+          type: string
+          minLength: 1
+          description: Boleto status.
+          example: registered
+        amount:
+          exclusiveMinimum: true
+          type: string
+          minLength: 1
+          description: The boleto payment amount.
+          example: 4000
+          minimum: 0
+        dueDate:
+          minLength: 10
+          maxLength: 10
+          type: string
+          oneOf:
+            - format: date
+              type: string
+            - format: date-time
+              type: string
+          description: The due date (ISO 8601 format YYYY-MM-DD).
+          example: '2024-07-12'
+        memo:
+          maxLength: 320
+          type: string
+          minLength: 1
+          description: Optional note for the payer, shown on the boleto.
+          example: Payment for marketing services
+        barcode:
+          type: string
+          minLength: 1
+          description: The barcode for the boleto.
+          example: '32994978900005000000001546128483498231955341'
+        digitableLine:
+          type: string
+          minLength: 1
+          description: The digitable line for the boleto.
+          example: '32990001524612848349582319553408497890000500002'
+        payerData:
+          $ref: '#/components/schemas/PayerDataDto'
+          minLength: 1
+          type: string
+          description: Payer information.
+        qrCodeImage:
+          type: string
+          description: QR code image in base64 format for BolePix payments.
+          example: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAY...
+        bolepixEnabled:
+          type: boolean
+          description: If true, generates a BolePix boleto with a Pix QR code.
+          default: true
+        paymentDetails:
+          $ref: '#/components/schemas/PaymentDetailsDto'
+          description: Payment details.
+        metadata:
+          type: object
+          description: Boleto metadata.
+          example:
+            key1: value1
+        createdAt:
+          oneOf:
+            - format: date
+              type: string
+            - format: date-time
+              type: string
+          minLength: 1
+          type: string
+          description: Creation date (ISO 8601).
+          example: '2024-06-23T09:15:32Z'
+        updatedAt:
+          oneOf:
+            - format: date
+              type: string
+            - format: date-time
+              type: string
+          description: Updated at (ISO 8601).
+          example: '2024-06-26T12:53:47Z'
+      type: object
+      required:
+        - id
+        - boletoStatus
+        - amount
+        - dueDate
+        - memo
+        - barcode
+        - digitableLine
+        - payerData
+        - createdAt
+    BoletoCreateDto:
+      properties:
+        amount:
+          exclusiveMinimum: true
+          type: string
+          minLength: 1
+          description: The payment amount.
+          example: 5000
+          minimum: 0
+        dueDate:
+          minLength: 10
+          maxLength: 10
+          type: string
+          oneOf:
+            - format: date
+              type: string
+            - format: date-time
+              type: string
+          description: The due date (ISO 8601 format YYYY-MM-DD).
+          example: '2025-01-15'
+        memo:
+          maxLength: 320
+          type: string
+          minLength: 1
+          description: Optional note for the payer, shown on the boleto.
+          example: Payment for services
+        payerData:
+          $ref: '#/components/schemas/PayerDataDto'
+          minLength: 1
+          type: string
+          description: Payer information.
+        metadata:
+          type: object
+          description: 'Boleto metadata. Can be used to store additional information about the boleto, e.g. "internalReference": "INV-789". Keys must be strings up to 50 chars. Values must be strings up to 255 chars.'
+          example:
+            internalReference: INV-789
+            key1: value1
+            key2: value2
+        bolepixEnabled:
+          type: boolean
+          description: If true, generates a BolePix boleto with a Pix QR code.
+          default: true
+      type: object
+      required:
+        - amount
+        - dueDate
+        - memo
+        - payerData
+    BoletosListRequest:
+      properties:
+        page:
+          minimum: 1
+          type: number
+          description: The page number to retrieve.
+          default: 1
+          example: 1
+        pageSize:
+          maximum: 500
+          type: number
+          minimum: 1
+          description: The number of items per page.
+          default: 20
+          example: 20
+      type: object
+    BoletosPageDto:
+      properties:
+        rows:
+          items:
+            $ref: '#/components/schemas/BoletoDto'
+          type: array
+        count:
+          type: number
+          example: 100
+      type: object
+      required:
+        - rows
+        - count
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: http://localhost:4000/oauth/token
+          scopes:
+            cards:read: Read cards.
+            cards:write: Create/Update/Delete cards.
+            transactions:read: Read transactions for reconciliation.
+            boletos:read: Read boletos.
+            boletos:write: Create/Cancel boletos.
+info:
+  title: Jeeves Public API
+  version: 1.0.0
+  description: Welcome to Jeeves Public API.
+openapi: 3.0.0
+paths:
+  /v1/travel/transactions:
+    get:
+      operationId: TravelController.getTransactions
+      parameters:
+        - in: query
+          name: pageCursor
+          schema:
+            type: string
+            description: The cursor of the next page of transactions (returned in the "nextCursor" property in the response).
+            nullable: true
+            default: null
+        - in: query
+          name: pageSize
+          schema:
+            maximum: 100
+            type: number
+            minimum: 1
+            description: The page size.
+            default: 100
+            example: 100
+        - in: query
+          name: startDate
+          schema:
+            oneOf:
+              - format: date
+                type: string
+              - format: date-time
+                type: string
+            description: The start date of the transaction.
+            example: '2025-01-01'
+            default: D-1 (yesterday)
+            format: yyyy-MM-dd
+        - in: query
+          name: endDate
+          schema:
+            oneOf:
+              - format: date
+                type: string
+              - format: date-time
+                type: string
+            description: The end date of the transaction.
+            example: '2025-01-01'
+            default: D-1 (yesterday)
+            format: yyyy-MM-dd
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionResponse'
+          description: Paginated list of completed transactions done from the virtual cards created via API.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Get transactions
+      tags:
+        - Travel
+      security:
+        - OAuth2ClientCredentials:
+            - transactions:read
+      description: Get completed transactions from the virtual cards created via API for reconciliation.
+  /v1/travel/cards/{id}/booking:
+    patch:
+      operationId: TravelController.updateBookingDetails
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: string
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TravelCardBookingDetails'
+        description: TravelCardBookingDetails
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TravelCardDto'
+          description: Travel card details.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Update booking details.
+      tags:
+        - Travel
+      security:
+        - OAuth2ClientCredentials:
+            - cards:write
+  /v1/cards:
+    get:
+      operationId: CardsController.getCards
+      parameters:
+        - in: query
+          name: page
+          schema:
+            minimum: 1
+            type: number
+            description: The page number to retrieve.
+            default: 1
+            example: 1
+        - in: query
+          name: pageSize
+          schema:
+            maximum: 500
+            type: number
+            minimum: 1
+            description: The number of items per page.
+            default: 20
+            example: 20
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardsPageDto'
+          description: List of cards.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Retrieve cards.
+      tags:
+        - Cards
+      security:
+        - OAuth2ClientCredentials:
+            - cards:read
+    post:
+      operationId: CardsController.createCard
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardCreateDto'
+        description: CardCreateDto
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardDetailsDto'
+          description: Card details.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Create a card.
+      tags:
+        - Cards
+      parameters:
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      security:
+        - OAuth2ClientCredentials:
+            - cards:write
+  /v1/cards/{id}:
+    get:
+      operationId: CardsController.getCard
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: string
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardDetailsDto'
+          description: Card details.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Retrieve a card by id.
+      tags:
+        - Cards
+      security:
+        - OAuth2ClientCredentials:
+            - cards:read
+    patch:
+      operationId: CardsController.updateCard
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: string
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardUpdateDto'
+        description: CardUpdateDto
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardDto'
+          description: Card details.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Update card by id.
+      tags:
+        - Cards
+      security:
+        - OAuth2ClientCredentials:
+            - cards:write
+    delete:
+      operationId: CardsController.deleteCard
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: string
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      responses:
+        '204':
+          content:
+            application/json: {}
+          description: Successful response
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Delete card by id.
+      tags:
+        - Cards
+      security:
+        - OAuth2ClientCredentials:
+            - cards:write
+  /v1/boletos:
+    get:
+      operationId: BoletosController.getBoletos
+      parameters:
+        - in: query
+          name: page
+          schema:
+            minimum: 1
+            type: number
+            description: The page number to retrieve.
+            default: 1
+            example: 1
+        - in: query
+          name: pageSize
+          schema:
+            maximum: 500
+            type: number
+            minimum: 1
+            description: The number of items per page.
+            default: 20
+            example: 20
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoletosPageDto'
+          description: List of boletos.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Retrieve boletos.
+      tags:
+        - Boletos
+      security:
+        - OAuth2ClientCredentials:
+            - boletos:read
+    post:
+      operationId: BoletosController.createBoleto
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoletoCreateDto'
+        description: BoletoCreateDto
+        required: true
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoletoDto'
+          description: Creates a boleto and returns its details.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Create a boleto.
+      tags:
+        - Boletos
+      parameters:
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      security:
+        - OAuth2ClientCredentials:
+            - boletos:write
+  /v1/boletos/{id}:
+    get:
+      operationId: BoletosController.getBoleto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: string
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoletoDto'
+          description: Boleto details.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Retrieve a boleto by id.
+      tags:
+        - Boletos
+      security:
+        - OAuth2ClientCredentials:
+            - boletos:read
+  /v1/boletos/{id}/cancel:
+    post:
+      operationId: BoletosController.cancelBoleto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: string
+        - required: false
+          name: Accept-Language
+          example: en-US
+          description: Language code for localization.
+          schema:
+            type: string
+            enum:
+              - en-US
+              - es-MX
+              - pt-BR
+            default: en-US
+          in: header
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoletoDto'
+          description: Cancels a boleto and returns its details.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorDto'
+          description: Invalid request.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unauthorized request.
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Denied request.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Object not found.
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+          description: Unexpected server error.
+        default:
+          description: Default response
+          headers:
+            x-trace-id:
+              schema:
+                type: string
+                description: Request Trace ID
+      summary: Cancel boleto by id.
+      tags:
+        - Boletos
+      security:
+        - OAuth2ClientCredentials:
+            - boletos:write
+security:
+  - OAuth2ClientCredentials:
+      - cards:read
+      - cards:write
+      - transactions:read
+      - boletos:read
+      - boletos:write
+servers: 
+  - url: 'https://public-sandbox.tryjeeves.com'
+  - url: 'https://public-api.jeev.es'
+  - url: 'http://localhost:4000'
+  - url: 'https://public-develop-01.dev.tryjeeves.com'

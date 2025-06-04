@@ -1,0 +1,271 @@
+catalog.filters.clearAll: Clear filters
+catalog.filters.done: Done
+catalog.filters.placeholder: Type to filter...
+catalog.filters.select.addFilter: Add filter
+catalog.filters.select.all: All
+catalog.filters.title: Filters
+codeSnippet.copy.buttonText: Copied!
+codeSnippet.copy.toasterText: Copy
+codeSnippet.copy.tooltipText: Copy to clipboard
+codeSnippet.report.buttonText: Report
+codeSnippet.report.label: What is wrong with this code?
+codeSnippet.report.tooltipText: Report a problem
+codeWalkthrough.download: Download
+codeWalkthrough.preview: Preview
+dev.app.delete: Delete
+dev.app.description.title: Description
+dev.app.edit: Edit
+dev.app.key.api.edit: Edit APIs
+dev.app.key.api.name: API Name
+dev.app.key.api.status: Status
+dev.app.key.create: Create key
+dev.app.key.revoke: Revoke API key
+dev.app.key.roll: Roll API key
+dev.app.overview.apiKey: API key
+dev.app.overview.clientId: Secret
+dev.app.overview.created: Created
+dev.app.overview.expires: Expires
+dev.app.overview.non-production: Non-Production
+dev.app.overview.production: Production
+dev.app.overview.status: Status
+dev.app.overview.status.approved: Approved
+dev.app.overview.status.pending: Pending
+dev.app.overview.status.revoked: Revoked
+dev.app.overview.visibilityToggle.hide: Hide
+dev.app.overview.visibilityToggle.show: Show
+dev.create.app.dialog.appName.error: >-
+  Name must start with a letter and can only contain: letters, numbers, spaces,
+  ., _, -, $, %, #
+dev.create.app.dialog.appName.placeholder: App name
+dev.create.app.dialog.cancel: Cancel
+dev.create.app.dialog.create: Create application
+dev.create.app.dialog.description: Description
+dev.create.app.dialog.description.placeholder: Empty
+dev.create.app.dialog.selectAPIs: Select APIs
+dev.create.key.dialog.cancel: Cancel
+dev.create.key.dialog.create: Create key
+dev.create.key.dialog.title: Create key
+dev.delete.app.dialog.cancel: Cancel
+dev.delete.app.dialog.confirmation: Do you really want to delete this app?
+dev.delete.app.dialog.delete: Delete app
+dev.delete.app.dialog.title: Delete app
+dev.edit.apis.dialog.apiKey: API key
+dev.edit.apis.dialog.cancel: Cancel
+dev.edit.apis.dialog.save: Save
+dev.edit.apis.dialog.selectedAPIs: Selected APIs
+dev.edit.apis.dialog.title: Edit APIs
+dev.edit.app.dialog.cancel: Cancel
+dev.edit.app.dialog.save: Save changes
+dev.edit.app.dialog.title: Change display name
+dev.edit.description.dialog.cancel: Cancel
+dev.edit.description.dialog.save: Save changes
+dev.edit.description.dialog.title: Change description
+dev.main.tab.appKeys: API keys
+dev.main.tab.logs: Logs
+dev.newApp: New application
+dev.newApp.text: Create your first app
+dev.revoke.key.dialog.apiKey: API key
+dev.revoke.key.dialog.cancel: Cancel
+dev.revoke.key.dialog.confirmation: Are you sure you want to revoke this API key?
+dev.revoke.key.dialog.expires: Expires
+dev.revoke.key.dialog.revoke: Revoke API key
+dev.revoke.key.dialog.title: Revoke API key
+dev.roll.key.dialog.apiKey: API key
+dev.roll.key.dialog.cancel: Cancel
+dev.roll.key.dialog.confirmation: Are you sure you want to roll this API key?
+dev.roll.key.dialog.expires: Expires
+dev.roll.key.dialog.roll: Roll API key
+dev.roll.key.dialog.title: Roll API key
+dev.select.placeholder: Empty
+dev.sidebar.footer.text: New application
+dev.sidebar.header: My apps
+dev.update.key.dialog.cancel: Update key
+dev.update.key.dialog.title: Update key
+dev.update.key.dialog.update: Cancel
+feedback.sentiment.thumbDown: 'No'
+feedback.sentiment.thumbUp: 'Yes'
+feedback.settings.comment.cancel: Cancel
+feedback.settings.comment.dislikeLabel: What can we improve?
+feedback.settings.comment.dissatisfiedLabel: What can we improve?
+feedback.settings.comment.label: Please share your feedback with us.
+feedback.settings.comment.likeLabel: What was most helpful?
+feedback.settings.comment.neutralLabel: What can we improve?
+feedback.settings.comment.satisfiedLabel: What was most helpful?
+feedback.settings.comment.send: Send
+feedback.settings.comment.submitText: Thank you for helping improve our documentation!
+feedback.settings.label: Was this helpful?
+feedback.settings.leftScaleLabel: Not helpful at all
+feedback.settings.optionalEmail.label: Your email (optional, for follow-up)
+feedback.settings.optionalEmail.placeholder: yourname@example.com
+feedback.settings.reasons.label: Which statement describes your thoughts about this page?
+feedback.settings.reasons.send: Send
+feedback.settings.rightScaleLabel: Extremely helpful
+feedback.settings.submitText: Thank you for your feedback!
+footer.copyrightText: ''
+graphql.arguments.here: Arguments Here
+graphql.arguments.hide: Hide arguments
+graphql.arguments.label: Arguments
+graphql.arguments.show: Show arguments
+graphql.defaultValue: Default
+graphql.deprecated: deprecated
+graphql.deprecationReason: Deprecation reason
+graphql.directives: Directives
+graphql.enums: Enums
+graphql.implementedInterfaces: Implements interfaces
+graphql.inputs: Inputs
+graphql.interfaces: Interfaces
+graphql.locations: Locations
+graphql.mutations: Mutations
+graphql.mutationSample: Mutation sample
+graphql.nonNull: non-null
+graphql.objects: Objects
+graphql.possibleTypes: Possible types
+graphql.queries: Queries
+graphql.querySample: Query sample
+graphql.referenced: Referenced in
+graphql.required: required
+graphql.responseSample: Response sample
+graphql.returnTypes.hide: Hide return type
+graphql.returnTypes.label: Return type
+graphql.returnTypes.show: Show return type
+graphql.sample: Sample
+graphql.scalars: Scalars
+graphql.subscriptions: Subscriptions
+graphql.subscriptionSample: Subscription sample
+graphql.unions: Unions
+graphql.variables: Variables
+markdown.editPage.text: Edit
+mobileMenu.mainMenu: Main Menu
+mobileMenu.previous: Previous
+mobileMenu.products: Products
+openapi.actions.hide: Hide
+openapi.actions.more: more
+openapi.actions.show: Show
+openapi.additionalProperties: additional property
+openapi.authorizationUrl: Authorization URL
+openapi.badges.deprecated: Deprecated
+openapi.badges.required: required
+openapi.badges.webhook: Webhook
+openapi.bearerFormat: Bearer Format
+openapi.body: Body
+openapi.callbackRequest: Callback Request
+openapi.callbackResponse: Callback Response
+openapi.callbacks: Callbacks
+openapi.collapseAll: Collapse all
+openapi.complex: Complex
+openapi.connectUrl: Connect URL
+openapi.contentType: Content type
+openapi.cookie: Cookies
+openapi.default: Default
+openapi.deprecated: deprecated
+openapi.description: Description
+openapi.discriminator: Discriminator
+openapi.download.description.title: Download OpenAPI description
+openapi.enum: Enum
+openapi.example: Example
+openapi.examples: Examples
+openapi.expandAll: Expand all
+openapi.failedToGenerateCodeSample: Failed to generate code sample.
+openapi.flowType: Flow type
+openapi.header: Headers
+openapi.hideExample: Hide example
+openapi.hidePattern: Hide pattern
+openapi.httpAuthorizationScheme: HTTP Authorization Scheme
+openapi.info.contact.name: E-mail
+openapi.info.contact.url: URL
+openapi.info.license: License
+openapi.info.metadata.title: Metadata
+openapi.info.termsOfService: Terms of Service
+openapi.info.title: Overview
+openapi.items: Items
+openapi.key: Key
+openapi.languages.title: Languages
+openapi.loading: Loading...
+openapi.noRequestPayload: No request payload
+openapi.noResponseContent: No content
+openapi.noResponseExample: No response example
+openapi.operations: Operations
+openapi.parameterName: parameter name
+openapi.path: Path
+openapi.patternProperties: pattern property
+openapi.payload: Payload
+openapi.query: Query
+openapi.recursive: Recursive
+openapi.refreshUrl: Refresh URL
+openapi.request: Request
+openapi.required: required
+openapi.requiredScopes: Required scopes
+openapi.response: Response
+openapi.responses: Responses
+openapi.scopes: Scopes
+openapi.security: Security
+openapi.servers.title: Servers
+openapi.showExample: Show example
+openapi.showPattern: Show pattern
+openapi.tokenUrl: Token URL
+openapi.tryIt: Try it
+openapi.unsupportedLanguage: Language is not supported.
+openapi.value: Value
+openapi.variable: variable
+openapi.variables: variables
+openapi.webhooks: Webhooks
+page.forbidden.title: Access forbidden
+page.homeButton: Go home
+page.lastUpdated.on: Last updated on
+page.lastUpdated.timeago: Last updated
+page.nextButton: Next page
+page.notFound.description: >-
+  The page you were trying to reach doesn't exist or may have been moved. You
+  can go back to the previous page, return to the homepage, or use the search
+  bar to find what you're looking for.
+page.notFound.title: Something went missing...
+page.previousButton: Previous page
+search.ai.backToSearch: Back to search
+search.ai.button: Search with AI
+search.ai.disclaimer: >-
+  AI search might provide incomplete or incorrect results. Verify important
+  information.
+search.ai.error.description: >-
+  We encountered an issue while processing your search. Try again later or
+  refine your query. If the problem persists, please contact Redocly support.
+search.ai.error.description.forbidden: AI Search is currently unavailable.
+search.ai.error.description.unauthorized: You are not authorized to use AI Search.
+search.ai.error.header: Oops! Something went wrong.
+search.ai.error.header.forbidden: Feature Unavailable
+search.ai.error.header.unauthorized: Authentication Required
+search.ai.followUpQuestion: Ask a follow up question?
+search.ai.generatingResponse: Generating response...
+search.ai.label: Ask AI assistant
+search.ai.newConversation: New conversation
+search.ai.placeholder: Ask a question...
+search.ai.resourcesFound: resources found
+search.ai.resourcesFound.basedOn: Based on
+search.ai.resourcesFound.resources: resources
+search.ai.suggestionsTitle: Suggestions
+search.ai.thinkingText: Thinking...
+search.ai.welcomeText: 'Welcome to AI search! Feel free to ask me anything. How can I help you? '
+search.cancel: Cancel
+search.filter.field.reset: Reset
+search.filter.reset: Reset filters
+search.filter.title: Advanced filter
+search.keys.exit: to exit
+search.keys.navigate: to navigate
+search.keys.select: to select
+search.label: Search docs...
+search.loading: Loading...
+search.navbar.label: Search
+search.noResults.title: No results
+search.recent: Recent searches
+search.showMore: Show more
+search.suggested: Suggested pages
+sidebar.actions.changeLayout: Change layout
+sidebar.actions.hide: Hide sidebar
+sidebar.actions.show: Show sidebar
+sidebar.menu.backLabel: Back
+sidebar.menu.backToLabel: Back to {{value}}
+toc.header: On this page
+userMenu.devOnboardingLabel: My Apps
+userMenu.login: Login
+userMenu.logout: Log out
+versionPicker.label: 'Version:'
+versionPicker.unversioned: All versions

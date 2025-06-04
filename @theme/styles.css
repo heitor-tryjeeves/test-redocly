@@ -1,0 +1,104 @@
+/* Learn more about Realm styles: https://redocly.com/docs/realm/style/concepts/styling */
+:root {
+  --primary-color: #c5ae6d;
+  --primary-gradient: linear-gradient(90deg, #c5ae6d, #ab8947 69%);
+
+  --text-color: #ffffff;
+  --secondary-text-color: #e5e7eb;
+  --border-color: #333;
+}
+
+:root .cls-2 {
+  background-color: #c5ae6d;
+}
+
+:root.dark {
+  --bg-color: #181818;
+  --sidebar-bg-color: #232323;
+  --navbar-bg-color: #232323;
+  --background-color: #232323;
+  --footer-bg-color: #232323;
+  --layer-color: #232323;
+  --secondary-background: #232323;
+  --code-background: #1e293b;
+}
+
+/* Base styles */
+body {
+  background: var(--background-color);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+}
+
+/* Code blocks */
+pre, code {
+  background: var(--code-background) !important;
+  color: var(--text-color) !important;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 14px;
+}
+
+/* Sidebar and panels */
+.sidebar {
+  background: var(--secondary-background);
+  color: var(--text-color);
+}
+
+.sidebar .active {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.right-panel {
+  background: var(--secondary-background);
+  color: var(--secondary-text-color);
+}
+
+/* Button styles */
+.button-tone-brand {
+  background: var(--primary-gradient);
+  color: var(--text-color);
+}
+
+/* Dark mode overrides */
+:root.dark {
+  --background-color: #181818;
+  --secondary-background: #232323;
+  --text-color: #ffffff;
+  --secondary-text-color: #e5e7eb;
+}

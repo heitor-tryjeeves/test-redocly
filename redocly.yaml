@@ -1,0 +1,38 @@
+# reunite:
+  # ignoreLint: true
+  # ignoreLinkChecker: true
+extends:
+  - minimal
+links:
+  - href: https://fonts.googleapis.com/css2?family=VT323&display=swap
+  - href: https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap
+  - href: https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap
+seo:
+  title: Jeeves Public API
+  description: Start today using our public API to power your next project.
+navbar:
+  items:
+    - page: apis/index.yaml
+      label: API Reference
+mockServer: 
+  off: true
+markdown:
+  toc:
+    depth: 2
+logo:
+  image: images/logo.svg
+  link: /
+footer:
+  copyrightText: © Jeeves Inc. 2025.
+l10n:
+  defaultLocale: en
+  locales:
+    - code: en
+      name: English
+    - code: es-MX
+      name: Español
+    - code: pt-BR
+      name: Português
+openapi:
+  corsProxyUrl: ''
+  

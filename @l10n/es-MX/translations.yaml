@@ -1,0 +1,290 @@
+catalog.filters.clearAll: Limpiar filtros
+catalog.filters.done: Listo
+catalog.filters.placeholder: Escribe para filtrar...
+catalog.filters.select.addFilter: Agregar filtro
+catalog.filters.select.all: Todos
+catalog.filters.title: Filtros
+codeSnippet.copy.buttonText: ¡Copiado!
+codeSnippet.copy.toasterText: Copiar
+codeSnippet.copy.tooltipText: Copiar al portapapeles
+codeSnippet.report.buttonText: Reportar
+codeSnippet.report.label: ¿Qué está mal con este código?
+codeSnippet.report.tooltipText: Reportar un problema
+codeWalkthrough.download: Descargar
+codeWalkthrough.preview: Vista previa
+dev.app.delete: Eliminar
+dev.app.description.title: Descripción
+dev.app.edit: Editar
+dev.app.key.api.edit: Editar APIs
+dev.app.key.api.name: Nombre de API
+dev.app.key.api.status: Estado
+dev.app.key.create: Crear llave
+dev.app.key.revoke: Revocar llave API
+dev.app.key.roll: Rotar llave API
+dev.app.overview.apiKey: Llave API
+dev.app.overview.clientId: Secreto
+dev.app.overview.created: Creado
+dev.app.overview.expires: Vence
+dev.app.overview.non-production: No Producción
+dev.app.overview.production: Producción
+dev.app.overview.status: Estado
+dev.app.overview.status.approved: Aprobado
+dev.app.overview.status.pending: Pendiente
+dev.app.overview.status.revoked: Revocado
+dev.app.overview.visibilityToggle.hide: Ocultar
+dev.app.overview.visibilityToggle.show: Mostrar
+dev.create.app.dialog.appName.error: >-
+  El nombre debe comenzar con una letra y solo puede contener: letras, números, espacios,
+  ., _, -, $, %, #
+dev.create.app.dialog.appName.placeholder: Nombre de la aplicación
+dev.create.app.dialog.cancel: Cancelar
+dev.create.app.dialog.create: Crear aplicación
+dev.create.app.dialog.description: Descripción
+dev.create.app.dialog.description.placeholder: Vacío
+dev.create.app.dialog.selectAPIs: Seleccionar APIs
+dev.create.key.dialog.cancel: Cancelar
+dev.create.key.dialog.create: Crear llave
+dev.create.key.dialog.title: Crear llave
+dev.delete.app.dialog.cancel: Cancelar
+dev.delete.app.dialog.confirmation: ¿Realmente deseas eliminar esta aplicación?
+dev.delete.app.dialog.delete: Eliminar aplicación
+dev.delete.app.dialog.title: Eliminar aplicación
+dev.edit.apis.dialog.apiKey: Llave API
+dev.edit.apis.dialog.cancel: Cancelar
+dev.edit.apis.dialog.save: Guardar
+dev.edit.apis.dialog.selectedAPIs: APIs seleccionadas
+dev.edit.apis.dialog.title: Editar APIs
+dev.edit.app.dialog.cancel: Cancelar
+dev.edit.app.dialog.save: Guardar cambios
+dev.edit.app.dialog.title: Cambiar nombre
+dev.edit.description.dialog.cancel: Cancelar
+dev.edit.description.dialog.save: Guardar cambios
+dev.edit.description.dialog.title: Cambiar descripción
+dev.main.tab.appKeys: Llaves API
+dev.main.tab.logs: Registros
+dev.newApp: Nueva aplicación
+dev.newApp.text: Crea tu primera aplicación
+dev.revoke.key.dialog.apiKey: Llave API
+dev.revoke.key.dialog.cancel: Cancelar
+dev.revoke.key.dialog.confirmation: ¿Estás seguro de que deseas revocar esta llave API?
+dev.revoke.key.dialog.expires: Vence
+dev.revoke.key.dialog.revoke: Revocar llave API
+dev.revoke.key.dialog.title: Revocar llave API
+dev.roll.key.dialog.apiKey: Llave API
+dev.roll.key.dialog.cancel: Cancelar
+dev.roll.key.dialog.confirmation: ¿Estás seguro de que deseas rotar esta llave API?
+dev.roll.key.dialog.expires: Vence
+dev.roll.key.dialog.roll: Rotar llave API
+dev.roll.key.dialog.title: Rotar llave API
+dev.select.placeholder: Vacío
+dev.sidebar.footer.text: Nueva aplicación
+dev.sidebar.header: Mis aplicaciones
+dev.update.key.dialog.cancel: Actualizar llave
+dev.update.key.dialog.title: Actualizar llave
+dev.update.key.dialog.update: Cancelar
+feedback.sentiment.thumbDown: 'No'
+feedback.sentiment.thumbUp: 'Sí'
+feedback.settings.comment.cancel: Cancelar
+feedback.settings.comment.dislikeLabel: ¿Qué podemos mejorar?
+feedback.settings.comment.dissatisfiedLabel: ¿Qué podemos mejorar?
+feedback.settings.comment.label: Por favor comparte tu opinión con nosotros.
+feedback.settings.comment.likeLabel: ¿Qué fue lo más útil?
+feedback.settings.comment.neutralLabel: ¿Qué podemos mejorar?
+feedback.settings.comment.satisfiedLabel: ¿Qué fue lo más útil?
+feedback.settings.comment.send: Enviar
+feedback.settings.comment.submitText: ¡Gracias por ayudarnos a mejorar nuestra documentación!
+feedback.settings.label: ¿Fue esto útil?
+feedback.settings.leftScaleLabel: Nada útil
+feedback.settings.optionalEmail.label: Tu correo (opcional, para seguimiento)
+feedback.settings.optionalEmail.placeholder: tunombre@ejemplo.com
+feedback.settings.reasons.label: ¿Qué declaración describe mejor tu opinión sobre esta página?
+feedback.settings.reasons.send: Enviar
+feedback.settings.rightScaleLabel: Extremadamente útil
+feedback.settings.submitText: ¡Gracias por tus comentarios!
+footer.copyrightText: ''
+graphql.arguments.here: Argumentos Aquí
+graphql.arguments.hide: Ocultar argumentos
+graphql.arguments.label: Argumentos
+graphql.arguments.show: Mostrar argumentos
+graphql.defaultValue: Predeterminado
+graphql.deprecated: obsoleto
+graphql.deprecationReason: Razón de obsolescencia
+graphql.directives: Directivas
+graphql.enums: Enumeraciones
+graphql.implementedInterfaces: Implementa interfaces
+graphql.inputs: Entradas
+graphql.interfaces: Interfaces
+graphql.locations: Ubicaciones
+graphql.mutations: Mutaciones
+graphql.mutationSample: Ejemplo de mutación
+graphql.nonNull: no nulo
+graphql.objects: Objetos
+graphql.possibleTypes: Tipos posibles
+graphql.queries: Consultas
+graphql.querySample: Ejemplo de consulta
+graphql.referenced: Referenciado en
+graphql.required: requerido
+graphql.responseSample: Ejemplo de respuesta
+graphql.returnTypes.hide: Ocultar tipo de retorno
+graphql.returnTypes.label: Tipo de retorno
+graphql.returnTypes.show: Mostrar tipo de retorno
+graphql.sample: Ejemplo
+graphql.scalars: Escalares
+graphql.subscriptions: Suscripciones
+graphql.subscriptionSample: Ejemplo de suscripción
+graphql.unions: Uniones
+graphql.variables: Variables
+markdown.editPage.text: Editar
+mobileMenu.mainMenu: Menú Principal
+mobileMenu.previous: Anterior
+mobileMenu.products: Productos
+openapi.actions.hide: Ocultar
+openapi.actions.more: más
+openapi.actions.show: Mostrar
+openapi.additionalProperties: propiedad adicional
+openapi.authorizationUrl: URL de Autorización
+openapi.badges.deprecated: Obsoleto
+openapi.badges.required: requerido
+openapi.badges.webhook: Webhook
+openapi.bearerFormat: Formato Bearer
+openapi.body: Cuerpo
+openapi.callbackRequest: Solicitud de Callback
+openapi.callbackResponse: Respuesta de Callback
+openapi.callbacks: Callbacks
+openapi.collapseAll: Colapsar todo
+openapi.complex: Complejo
+openapi.connectUrl: URL de Conexión
+openapi.contentType: Tipo de contenido
+openapi.cookie: Cookies
+openapi.default: Predeterminado
+openapi.deprecated: obsoleto
+openapi.description: Descripción
+openapi.discriminator: Discriminador
+openapi.download.description.title: Descargar descripción OpenAPI
+openapi.enum: Enumeración
+openapi.example: Ejemplo
+openapi.examples: Ejemplos
+openapi.expandAll: Expandir todo
+openapi.failedToGenerateCodeSample: Error al generar ejemplo de código.
+openapi.flowType: Tipo de flujo
+openapi.header: Encabezados
+openapi.hideExample: Ocultar ejemplo
+openapi.hidePattern: Ocultar patrón
+openapi.httpAuthorizationScheme: Esquema de Autorización HTTP
+openapi.info.contact.name: Correo electrónico
+openapi.info.contact.url: URL
+openapi.info.license: Licencia
+openapi.info.metadata.title: Metadatos
+openapi.info.termsOfService: Términos de Servicio
+openapi.info.title: Descripción general
+openapi.items: Elementos
+openapi.key: Llave
+openapi.languages.title: Idiomas
+openapi.loading: Cargando...
+openapi.noRequestPayload: Sin carga de solicitud
+openapi.noResponseContent: Sin contenido
+openapi.noResponseExample: Sin ejemplo de respuesta
+openapi.operations: Operaciones
+openapi.parameterName: nombre del parámetro
+openapi.path: Ruta
+openapi.patternProperties: propiedad de patrón
+openapi.payload: Carga
+openapi.query: Consulta
+openapi.recursive: Recursivo
+openapi.refreshUrl: URL de Actualización
+openapi.request: Solicitud
+openapi.required: requerido
+openapi.requiredScopes: Alcances requeridos
+openapi.response: Respuesta
+openapi.responses: Respuestas
+openapi.scopes: Alcances
+openapi.security: Seguridad
+openapi.servers.title: Servidores
+openapi.showExample: Mostrar ejemplo
+openapi.showPattern: Mostrar patrón
+openapi.tokenUrl: URL del Token
+openapi.tryIt: Pruébalo
+openapi.unsupportedLanguage: El idioma no es compatible.
+openapi.value: Valor
+openapi.variable: variable
+openapi.variables: variables
+openapi.webhooks: Webhooks
+page.forbidden.title: Acceso prohibido
+page.homeButton: Ir al inicio
+page.lastUpdated.on: Última actualización el
+page.lastUpdated.timeago: Última actualización
+page.nextButton: Página siguiente
+page.notFound.description: >-
+  La página que intentabas acceder no existe o puede haber sido movida. Puedes
+  regresar a la página anterior, volver al inicio, o usar la barra de búsqueda
+  para encontrar lo que buscas.
+page.notFound.title: Algo se ha perdido...
+page.previousButton: Página anterior
+search.ai.backToSearch: Volver a la búsqueda
+search.ai.button: Buscar con IA
+search.ai.disclaimer: >-
+  La búsqueda con IA puede proporcionar resultados incompletos o incorrectos. Verifica
+  la información importante.
+search.ai.error.description: >-
+  Encontramos un problema al procesar tu búsqueda. Intenta de nuevo más tarde o
+  refina tu consulta. Si el problema persiste, contacta al soporte de Redocly.
+search.ai.error.description.forbidden: La Búsqueda con IA no está disponible actualmente.
+search.ai.error.description.unauthorized: No estás autorizado para usar la Búsqueda con IA.
+search.ai.error.header: ¡Ups! Algo salió mal.
+search.ai.error.header.forbidden: Función No Disponible
+search.ai.error.header.unauthorized: Se Requiere Autenticación
+search.ai.followUpQuestion: ¿Hacer una pregunta de seguimiento?
+search.ai.generatingResponse: Generando respuesta...
+search.ai.label: Pregunta al asistente de IA
+search.ai.newConversation: Nueva conversación
+search.ai.placeholder: Haz una pregunta...
+search.ai.resourcesFound: recursos encontrados
+search.ai.resourcesFound.basedOn: Basado en
+search.ai.resourcesFound.resources: recursos
+search.ai.suggestionsTitle: Sugerencias
+search.ai.thinkingText: Pensando...
+search.ai.welcomeText: '¡Bienvenido a la búsqueda con IA! Siéntete libre de preguntarme cualquier cosa. ¿Cómo puedo ayudarte?'
+search.cancel: Cancelar
+search.filter.field.reset: Restablecer
+search.filter.reset: Restablecer filtros
+search.filter.title: Filtro avanzado
+search.keys.exit: para salir
+search.keys.navigate: para navegar
+search.keys.select: para seleccionar
+search.label: Buscar en docs...
+search.loading: Cargando...
+search.navbar.label: Buscar
+search.noResults.title: Sin resultados
+search.recent: Búsquedas recientes
+search.showMore: Mostrar más
+search.suggested: Páginas sugeridas
+sidebar.actions.changeLayout: Cambiar diseño
+sidebar.actions.hide: Ocultar barra lateral
+sidebar.actions.show: Mostrar barra lateral
+sidebar.menu.backLabel: Atrás
+sidebar.menu.backToLabel: Volver a {{value}}
+toc.header: En esta página
+userMenu.devOnboardingLabel: Mis Aplicaciones
+userMenu.login: Iniciar sesión
+userMenu.logout: Cerrar sesión
+versionPicker.label: 'Versión:'
+versionPicker.unversioned: Todas las versiones
+
+
+home.description: 'Comienza a gestionar tus finanzas globales con nuestra plataforma financiera.'
+home.getStarted: 'Comenzar'
+home.quickstart.description: 'Configura tu cuenta en minutos y accede a tarjetas corporativas, gestión de gastos y pagos internacionales.'
+home.features.title: 'Optimiza tus finanzas globales'
+home.features.description: 'Jeeves es una plataforma financiera que te ayuda a gestionar tarjetas corporativas, gastos y pagos internacionales. Ya sea que necesites emitir tarjetas, rastrear gastos o enviar pagos internacionales, Jeeves te proporciona las herramientas para hacerlo todo desde una sola plataforma.'
+home.features.feature1: 'Tarjetas Corporativas: Emite tarjetas físicas y virtuales con controles de gastos integrados.'
+home.features.feature2: 'Pagos Internacionales: Envía pagos a más de 150 países a tasas competitivas y a gran velocidad.'
+home.features.feature3: 'Gestión de Gastos: Rastrea y controla el gasto corporativo con herramientas automatizadas.'
+home.exploreDocumentation: 'Explorar documentación'
+home.featuredMissions.title: "Soluciones destacadas"
+home.featuredMissions.mission1.title: "Tarjetas Pre-Financiadas"
+home.featuredMissions.mission1.description: "Emite tarjetas ilimitadas en monedas locales para tu equipo global."
+home.featuredMissions.mission2.title: "Cuentas Corporativas"
+home.featuredMissions.mission2.description: "Guarda fondos en múltiples monedas y gana hasta un 5% de rendimiento en tus saldos."
+home.needHelp.title: "¿Necesitas ayuda?"
+home.needHelp.button1: 'Leer la documentación'
+home.needHelp.button2: 'Contactar soporte'
