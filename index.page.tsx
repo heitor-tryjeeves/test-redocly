@@ -25,7 +25,7 @@ export default function HomePage() {
       <HeroContainer>
         <HeroBg />
         {/* <Image srcSet={`${require('./images/grid.svg')} light, ${require('./images/grid-dark.svg')} dark`} /> */}
-        <h1>Jeeves Public API</h1>
+        <h1>Jeeves Public API - test</h1>
         <p>{translate('home.description')}</p>
         <Button size="large" variant="primary" tone="brand" to="/apis">
           {translate('home.getStarted')}
